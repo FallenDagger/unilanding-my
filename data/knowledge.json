@@ -1,0 +1,102 @@
+[
+  {
+    "id": "svc-mpv",
+    "category": "Services",
+    "text": "Luggage-Guaranteed MPV Transfer: Spacious Toyota Alphard/Vellfire vehicles booked in advance to fit 3+ massive 30kg suitcases without airport rejections. The VIP tier includes an extra-large van for 4+ suitcases. Flight delay tracking is included. Fixed upfront pricing with no hidden fees."
+  },
+  {
+    "id": "svc-esim",
+    "category": "Services",
+    "text": "Instant eSIM Connectivity: Pre-activated local Malaysian mobile data (CelcomDigi or Maxis) with 50GB high-speed data, delivered digitally or handed over right at the KLIA arrival gate by your driver. Valid for 30 days. Scan the QR code in phone settings to activate."
+  },
+  {
+    "id": "svc-kit",
+    "category": "Services",
+    "text": "Day-1 Survival Kit: Eco-friendly boxed essentials waiting in your room: bottled water, basic toiletries, clean bedsheets, pillow, and a hot meal voucher. Designed to help students settle in comfortably on their first day."
+  },
+  {
+    "id": "svc-vetting",
+    "category": "Services",
+    "text": "Pre-Arrival Room Vetting: Verified virtual walk-through report of your rented room before you fly, to prevent sizing or condition surprises. Includes inspection video. Available in the VIP Complete Relocation package."
+  },
+  {
+    "id": "price-essential",
+    "category": "Pricing",
+    "text": "Essential Transit package: RM 180. Includes spacious 6-seater MPV transfer from KLIA, luggage space guarantee (up to 3 bags), flight delay tracking, and upfront fixed pricing. Best for budget-focused single arrivals."
+  },
+  {
+    "id": "price-soft",
+    "category": "Pricing",
+    "text": "The Soft Landing package: RM 320 (Most Popular). Includes everything in Essential Transit plus local eSIM card (50GB high-speed data), Day-1 Survival Kit (bedding, water, toiletries), and 24/7 WhatsApp concierge support. Complete peace of mind for first-time arrivals."
+  },
+  {
+    "id": "price-vip",
+    "category": "Pricing",
+    "text": "VIP Complete Relocation package: RM 550. Includes everything in The Soft Landing plus pre-arrival room vetting and inspection video, extra-large van transport for 4+ suitcases, and university campus check-in escort assistance. For students wanting full housing and arrival care."
+  },
+  {
+    "id": "price-addons",
+    "category": "Pricing",
+    "text": "Add-ons available: Extra SIM Card for RM 30, Extra Meal Voucher for RM 25. Student discount codes can be applied at checkout. All prices in Malaysian Ringgit (MYR). No hidden fees."
+  },
+  {
+    "id": "booking-steps",
+    "category": "Booking",
+    "text": "Booking process in 4 steps: 1) Enter flight number, arrival date, arrival airport (KLIA/KLIA2), and destination address in Klang Valley. 2) Select package (Essential/Soft Landing/VIP) and add-ons. 3) Review total in MYR, apply discount code, pay via FPX, e-wallet, or card. 4) Receive instant confirmation via email and WhatsApp, plus driver contact 24 hours before landing."
+  },
+  {
+    "id": "payment-methods",
+    "category": "Payment",
+    "text": "Supported payment methods: FPX Online Banking (Maybank2u, CIMB Clicks, etc.), E-Wallets (GrabPay, Touch 'n Go eWallet, Boost), International Credit/Debit Cards (Visa, MasterCard), Apple Pay and Google Pay. PCI-DSS compliant SSL encrypted checkout with instant booking confirmation."
+  },
+  {
+    "id": "auth",
+    "category": "Account",
+    "text": "User authentication: Secure Email/Password plus Google One-Tap SSO. Student ID verification required. Required fields: Full Name, University Name (e.g. UNITAR), Flight Arrival Date and Number, Passport/Student ID upload. Create an account or log in from the landing page."
+  },
+  {
+    "id": "dashboard-features",
+    "category": "Dashboard",
+    "text": "Student dashboard features: Live flight tracker and driver assignment badge, direct WhatsApp link to assigned MPV driver, downloadable arrival checklist and eSIM QR code, booking history and invoice receipt generation. Access from the Dashboard link in the navigation."
+  },
+  {
+    "id": "universities",
+    "category": "About",
+    "text": "UniLanding MY serves Klang Valley universities including UNITAR International University, University of Malaya (UM), Taylor's University, Sunway University, UCSI University, and more. Contact us if your campus is elsewhere in Malaysia."
+  },
+  {
+    "id": "about",
+    "category": "About",
+    "text": "UniLanding MY is your stress-free soft landing partner in Malaysia. We combine luggage-guaranteed MPV transfers, instant eSIM activation, and pre-packed Day-1 survival kits so international students can focus on studies, not airport logistics. Domain concept: unilanding.my."
+  },
+  {
+    "id": "track-ride",
+    "category": "Tracking",
+    "text": "Track My Ride: Real-time MPV tracking with driver assignment badge, ETA, live map, driver details (name, vehicle, plate, rating), WhatsApp link to driver, and share ETA with host. Timeline shows flight landed, driver assigned, en route, and arrival at accommodation."
+  },
+  {
+    "id": "faq-luggage",
+    "category": "FAQ",
+    "text": "Luggage guarantee: Yes, we book spacious Toyota Alphard/Vellfire MPVs in advance with guaranteed space for 3+ suitcases (30 kg each). The VIP tier includes an extra-large van for 4+ suitcases. No airport rejections."
+  },
+  {
+    "id": "faq-esim",
+    "category": "FAQ",
+    "text": "eSIM: Your local Malaysian eSIM (CelcomDigi or Maxis, 50 GB high-speed data) is pre-activated and delivered digitally or handed to you at the KLIA arrival gate by your driver. Valid for 30 days. Scan QR code to activate on your phone."
+  },
+  {
+    "id": "faq-tracking",
+    "category": "FAQ",
+    "text": "Flight and driver tracking: Your dashboard includes a live flight tracker, driver assignment badge, and a direct WhatsApp link to your assigned MPV driver. You can also share your ETA with your host."
+  },
+  {
+    "id": "contact",
+    "category": "Contact",
+    "text": "Contact UniLanding MY: WhatsApp, Instagram, TikTok. Email support available. 24/7 WhatsApp concierge support for Soft Landing and VIP packages. For tracking, use the Track My Ride section or dashboard."
+  },
+  {
+    "id": "omniroute",
+    "category": "AI Assistant",
+    "text": "This AI assistant uses OmniRoute, a free open-source AI gateway that provides an OpenAI-compatible API. It runs locally on your machine at http://localhost:20128. Install with: npm install -g omniroute, then run: omniroute. The assistant uses a vector database (TF-IDF based) to retrieve relevant UniLanding MY information and provide accurate answers."
+  }
+]

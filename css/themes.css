@@ -1,0 +1,353 @@
+/* ============================================================
+   UniLanding MY — Theme System
+   4 themes: light, dark, nature, nightsky
+============================================================ */
+
+/* ---------- Light theme (default) ---------- */
+:root,
+[data-theme="light"] {
+  --primary: #1B365D;
+  --primary-dark: #142747;
+  --primary-light: rgba(27, 54, 93, 0.08);
+  --secondary: #F2A900;
+  --secondary-dark: #B98900;
+  --accent: #2ECC71;
+  --accent-dark: #1E9E5A;
+  --bg-light: #F8FAFC;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --border: #E2E8F0;
+  --white: #FFFFFF;
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.10);
+  --shadow-lg: 0 20px 48px rgba(15, 23, 42, 0.14);
+}
+
+/* ---------- Dark theme ---------- */
+[data-theme="dark"] {
+  --primary: #4A90D9;
+  --primary-dark: #3A7BC8;
+  --primary-light: rgba(74, 144, 217, 0.12);
+  --secondary: #F2A900;
+  --secondary-dark: #B98900;
+  --accent: #2ECC71;
+  --accent-dark: #1E9E5A;
+  --bg-light: #0F172A;
+  --text-primary: #F1F5F9;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --border: #334155;
+  --white: #1E293B;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] body {
+  background: var(--bg-light);
+}
+
+[data-theme="dark"] .navbar {
+  background: rgba(15, 23, 42, 0.85);
+  border-bottom-color: var(--border);
+}
+
+[data-theme="dark"] .modal-content,
+[data-theme="dark"] .dash-card,
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .pricing-card,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .track-card,
+[data-theme="dark"] .trust-item {
+  background: var(--white);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .hero-illustration svg rect[fill="white"],
+[data-theme="dark"] .hero-illustration svg rect[fill="#F8FAFC"] {
+  fill: #1E293B;
+}
+
+/* ---------- Nature theme (green environment + falling flowers) ---------- */
+[data-theme="nature"] {
+  --primary: #2D6A4F;
+  --primary-dark: #1B4332;
+  --primary-light: rgba(45, 106, 79, 0.10);
+  --secondary: #D4A373;
+  --secondary-dark: #BC8A5F;
+  --accent: #52B788;
+  --accent-dark: #40916C;
+  --bg-light: #F0F7F0;
+  --text-primary: #1B4332;
+  --text-secondary: #2D6A4F;
+  --text-muted: #52796F;
+  --border: #C7E0C7;
+  --white: #FFFFFF;
+  --shadow-sm: 0 2px 6px rgba(27, 67, 50, 0.08);
+  --shadow-md: 0 8px 24px rgba(27, 67, 50, 0.12);
+  --shadow-lg: 0 20px 48px rgba(27, 67, 50, 0.16);
+}
+
+[data-theme="nature"] body {
+  background: linear-gradient(180deg, #F0F7F0 0%, #E8F3E8 100%);
+}
+
+[data-theme="nature"] .navbar {
+  background: rgba(240, 247, 240, 0.9);
+}
+
+/* ---------- Night Sky theme (stars falling) ---------- */
+[data-theme="nightsky"] {
+  --primary: #7B68EE;
+  --primary-dark: #6A5ACD;
+  --primary-light: rgba(123, 104, 238, 0.12);
+  --secondary: #FFD700;
+  --secondary-dark: #DAA520;
+  --accent: #00CED1;
+  --accent-dark: #008B8B;
+  --bg-light: #0B1026;
+  --text-primary: #E8E8FF;
+  --text-secondary: #B8B8E8;
+  --text-muted: #8888BB;
+  --border: #2A2F4F;
+  --white: #1A1F3A;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="nightsky"] body {
+  background: linear-gradient(180deg, #0B1026 0%, #151A3A 100%);
+  color: var(--text-primary);
+}
+
+[data-theme="nightsky"] .navbar {
+  background: rgba(11, 16, 38, 0.85);
+  border-bottom-color: var(--border);
+}
+
+[data-theme="nightsky"] .modal-content,
+[data-theme="nightsky"] .dash-card,
+[data-theme="nightsky"] .service-card,
+[data-theme="nightsky"] .pricing-card,
+[data-theme="nightsky"] .faq-item,
+[data-theme="nightsky"] .track-card,
+[data-theme="nightsky"] .trust-item {
+  background: var(--white);
+  border-color: var(--border);
+}
+
+/* ---------- Theme selector widget ---------- */
+.theme-selector {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 2500;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+@media (max-width: 480px) {
+  .theme-selector {
+    bottom: 16px;
+    left: 16px;
+  }
+  .theme-toggle-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  .chat-widget {
+    bottom: 16px;
+    right: 16px;
+  }
+  .chat-toggle {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+.theme-toggle-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  font-size: 1.2rem;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.08);
+}
+
+.theme-options {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: var(--shadow-lg);
+}
+
+.theme-options.open {
+  display: flex;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: var(--transition);
+  white-space: nowrap;
+  text-align: left;
+  width: 100%;
+}
+
+.theme-option:hover {
+  background: var(--primary-light);
+}
+
+.theme-option.active {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.theme-option .theme-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid var(--border);
+}
+
+/* ---------- Falling animations container ---------- */
+.falling-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.falling-item {
+  position: absolute;
+  top: -40px;
+  animation: fall linear infinite;
+  opacity: 0.7;
+  user-select: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-40px) rotate(0deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+/* Nature: flower petals */
+[data-theme="nature"] .falling-item {
+  color: #FF6B9D;
+  font-size: 18px;
+}
+
+/* Night Sky: shooting stars */
+[data-theme="nightsky"] .falling-item {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.8),
+              0 0 12px 4px rgba(123, 104, 238, 0.6);
+  animation: shootingStar linear infinite;
+  opacity: 0;
+}
+
+[data-theme="nightsky"] .falling-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 80px;
+  height: 1.5px;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
+
+[data-theme="nightsky"] .falling-item::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(to left, rgba(123, 104, 238, 0.6), rgba(123, 104, 238, 0));
+  transform: translateY(-50%);
+  border-radius: 2px;
+}
+
+@keyframes shootingStar {
+  0% {
+    transform: translate(0, 0) rotate(215deg);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(300px, 300px) rotate(215deg);
+    opacity: 0;
+  }
+}
+
+/* Static background stars (twinkling) */
+[data-theme="nightsky"] .bg-star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  animation: twinkle ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Hide falling container when not in animated themes */
+body:not([data-theme="nature"]):not([data-theme="nightsky"]) .falling-container {
+  display: none;
+}

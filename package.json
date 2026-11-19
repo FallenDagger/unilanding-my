@@ -1,0 +1,21 @@
+{
+  "name": "unilanding-my",
+  "version": "1.0.0",
+  "description": "UniLanding MY - Your Stress-Free Soft Landing in Malaysia",
+  "scripts": {
+    "start": "npx serve . -p 8080",
+    "dev": "npx live-server --port=8080",
+    "serve": "python -m http.server 8080"
+  },
+  "keywords": [
+    "landing-page",
+    "malaysia",
+    "students",
+    "mpv",
+    "esim"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^25.18.1"
+  }
+}

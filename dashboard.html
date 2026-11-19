@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | UniLanding MY</title>
+  <meta name="description" content="Your UniLanding MY student dashboard — track your ride, manage bookings, download eSIM QR and arrival checklist." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' http://localhost:20128 http://127.0.0.1:20128; base-uri 'self'; form-action 'self';" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/motion.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/chat.css" />
+</head>
+<body class="dashboard-body">
+
+  <!-- ======================== NAVIGATION ======================== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="UniLanding MY home">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect x="2" y="2" width="28" height="28" rx="8" fill="#1B365D" />
+          <path d="M10 10h12M10 14h8M10 18h6" stroke="#F8FAFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="24" cy="10" r="2.5" fill="#F2A900" />
+        </svg>
+        <span class="logo-text">Uni<span style="color:var(--secondary)">Landing</span> MY</span>
+      </a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="#overview" class="nav-btn active">Dashboard</a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ======================== DASHBOARD LAYOUT ======================== -->
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="dash-sidebar" id="dash-sidebar">
+      <div class="dash-profile">
+        <div class="dash-avatar">AR</div>
+        <div class="dash-profile-info">
+          <span class="dash-name">Aisyah Rahman</span>
+          <span class="dash-uni">UNITAR International University</span>
+        </div>
+      </div>
+
+      <nav class="dash-nav">
+        <button class="dash-nav-item active" data-view="overview">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Overview
+        </button>
+        <button class="dash-nav-item" data-view="bookings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          My Bookings
+        </button>
+        <button class="dash-nav-item" data-view="track">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Track My Ride
+        </button>
+        <button class="dash-nav-item" data-view="esim">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><line x1="12" y1="7" x2="12" y2="21"/></svg>
+          eSIM &amp; Checklist
+        </button>
+        <button class="dash-nav-item" data-view="invoices">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Invoices
+        </button>
+        <button class="dash-nav-item" data-view="profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Profile
+        </button>
+      </nav>
+
+      <div class="dash-sidebar-footer">
+        <a href="index.html" class="dash-logout">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 0-2-2V5a2 2 0 0 0 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Sign Out
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="dash-main">
+      <!-- ======================== OVERVIEW ======================== -->
+      <section class="dash-view active" id="view-overview">
+        <div class="dash-header">
+          <h1 class="dash-title">Welcome back, Aisyah 👋</h1>
+          <p class="dash-subtitle">Here's your soft landing status at a glance.</p>
+        </div>
+
+        <!-- Quick stats -->
+        <div class="dash-stats">
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon" style="background:var(--primary-light);color:var(--primary)">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <span class="dash-stat-value">15 Dec 2026</span>
+              <span class="dash-stat-label">Arrival date</span>
+            </div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon" style="background:rgba(242,169,0,0.12);color:var(--secondary)">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <div>
+              <span class="dash-stat-value">Confirmed</span>
+              <span class="dash-stat-label">Booking status</span>
+            </div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon" style="background:rgba(46,204,113,0.12);color:var(--accent)">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div>
+              <span class="dash-stat-value">eSIM Ready</span>
+              <span class="dash-stat-label">Connectivity</span>
+            </div>
+          </div>
+          <div class="dash-stat-card">
+            <div class="dash-stat-icon" style="background:var(--primary-light);color:var(--primary)">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <span class="dash-stat-value">RM 320</span>
+              <span class="dash-stat-label">Total paid</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active booking card -->
+        <div class="dash-card active-booking">
+          <div class="dash-card-header">
+            <div>
+              <span class="dash-kicker">Active Booking</span>
+              <h3 class="dash-card-title">The Soft Landing Package</h3>
+            </div>
+            <span class="dash-badge success">Confirmed</span>
+          </div>
+          <div class="booking-ref-row">
+            <span class="booking-ref-label">Reference</span>
+            <span class="booking-ref-value">UNI-2026-8842</span>
+          </div>
+          <div class="booking-details-grid">
+            <div class="booking-detail">
+              <span class="bd-label">Flight</span>
+              <span class="bd-value">MH0123 · KLIA</span>
+            </div>
+            <div class="booking-detail">
+              <span class="bd-label">Arrival</span>
+              <span class="bd-value">15 Dec 2026, 14:30</span>
+            </div>
+            <div class="booking-detail">
+              <span class="bd-label">Destination</span>
+              <span class="bd-value">UNITAR Hostel, Selangor</span>
+            </div>
+            <div class="booking-detail">
+              <span class="bd-label">Vehicle</span>
+              <span class="bd-value">Toyota Alphard (6-seater)</span>
+            </div>
+          </div>
+          <div class="booking-actions">
+            <button class="btn btn-primary" data-view-switch="track">Track My Ride</button>
+            <a href="https://wa.me/60123456789" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Message Driver</a>
+          </div>
+        </div>
+
+        <!-- Quick actions -->
+        <div class="dash-quick-actions">
+          <button class="quick-action" data-view-switch="esim">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B365D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><line x1="12" y1="7" x2="12" y2="21"/></svg>
+            <span>Download eSIM QR</span>
+          </button>
+          <button class="quick-action" data-view-switch="esim">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B365D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Arrival Checklist</span>
+          </button>
+          <button class="quick-action" data-view-switch="invoices">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B365D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>View Invoice</span>
+          </button>
+          <a href="index.html#booking" class="quick-action">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B365D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <span>New Booking</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ======================== MY BOOKINGS ======================== -->
+      <section class="dash-view" id="view-bookings">
+        <div class="dash-header">
+          <h1 class="dash-title">My Bookings</h1>
+          <p class="dash-subtitle">View and manage all your soft landing bookings.</p>
+        </div>
+
+        <div class="dash-card">
+          <div class="table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Reference</th>
+                  <th>Package</th>
+                  <th>Flight</th>
+                  <th>Arrival</th>
+                  <th>Status</th>
+                  <th>Amount</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>UNI-2026-8842</strong></td>
+                  <td>The Soft Landing</td>
+                  <td>MH0123</td>
+                  <td>15 Dec 2026</td>
+                  <td><span class="dash-badge success">Confirmed</span></td>
+                  <td>RM 320</td>
+                  <td><button class="table-btn">View</button></td>
+                </tr>
+                <tr>
+                  <td><strong>UNI-2026-7710</strong></td>
+                  <td>Essential Transit</td>
+                  <td>AK0456</td>
+                  <td>02 Nov 2026</td>
+                  <td><span class="dash-badge muted">Completed</span></td>
+                  <td>RM 180</td>
+                  <td><button class="table-btn">View</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="dash-empty" style="display:none">
+          <p>No bookings yet. <a href="index.html#booking">Book your soft landing</a>.</p>
+        </div>
+      </section>
+
+      <!-- ======================== TRACK MY RIDE ======================== -->
+      <section class="dash-view" id="view-track">
+        <div class="dash-header">
+          <h1 class="dash-title">Track My Ride</h1>
+          <p class="dash-subtitle">Live status of your assigned MPV driver.</p>
+        </div>
+
+        <div class="dash-card track-card-dash">
+          <div class="track-status-row">
+            <div class="track-status-badge">
+              <span class="status-dot" style="background:var(--accent)"></span>
+              Driver Assigned
+            </div>
+            <span class="track-eta">Arriving in 12 min · KLIA Gate A</span>
+          </div>
+
+          <div class="track-map-large" aria-hidden="true">
+            <svg viewBox="0 0 600 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="600" height="220" rx="12" fill="#F8FAFC" stroke="#E2E8F0" />
+              <path d="M40 110 Q300 40 560 110" stroke="#CBD5E1" stroke-width="4" fill="none" stroke-linecap="round" />
+              <circle cx="560" cy="110" r="8" fill="#F2A900" />
+              <path d="M540 98 L560 110 L540 122" fill="#F2A900" />
+              <circle cx="80" cy="110" r="7" fill="#1B365D" />
+              <rect x="70" y="95" width="20" height="4" fill="#1B365D" opacity="0.3" />
+              <!-- car icon -->
+              <g transform="translate(260,95)">
+                <rect x="0" y="0" width="40" height="22" rx="6" fill="#1B365D" />
+                <circle cx="10" cy="22" r="5" fill="#0F172A" />
+                <circle cx="30" cy="22" r="5" fill="#0F172A" />
+                <rect x="6" y="4" width="10" height="8" rx="2" fill="#7dd3fc" />
+                <rect x="20" y="4" width="10" height="8" rx="2" fill="#7dd3fc" />
+              </g>
+            </svg>
+          </div>
+
+          <div class="driver-card">
+            <div class="driver-avatar">AH</div>
+            <div class="driver-info">
+              <span class="driver-name">Ahmad Hakimi</span>
+              <span class="driver-meta">Toyota Alphard · WXY 1234 · 4.9 ★</span>
+            </div>
+            <div class="driver-actions">
+              <a href="https://wa.me/60123456789" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                WhatsApp Driver
+              </a>
+              <button class="btn btn-outline" id="share-eta-btn">Share ETA</button>
+            </div>
+          </div>
+
+          <div class="track-timeline">
+            <div class="timeline-item done">
+              <span class="timeline-dot"></span>
+              <div class="timeline-content">
+                <strong>Flight landed</strong>
+                <span>14:22 · KLIA Terminal 1</span>
+              </div>
+            </div>
+            <div class="timeline-item done">
+              <span class="timeline-dot"></span>
+              <div class="timeline-content">
+                <strong>Driver assigned</strong>
+                <span>14:25 · Ahmad Hakimi</span>
+              </div>
+            </div>
+            <div class="timeline-item active">
+              <span class="timeline-dot"></span>
+              <div class="timeline-content">
+                <strong>En route to pickup</strong>
+                <span>ETA 12 min · Gate A</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-dot"></span>
+              <div class="timeline-content">
+                <strong>Arrive at accommodation</strong>
+                <span>Pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================== eSIM & CHECKLIST ======================== -->
+      <section class="dash-view" id="view-esim">
+        <div class="dash-header">
+          <h1 class="dash-title">eSIM &amp; Arrival Checklist</h1>
+          <p class="dash-subtitle">Your digital eSIM QR code and Day-1 arrival checklist.</p>
+        </div>
+
+        <div class="dash-grid-2">
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Local eSIM (50GB)</h3>
+              <span class="dash-badge success">Active</span>
+            </div>
+            <div class="esim-qr">
+              <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-label="eSIM QR code">
+                <rect width="120" height="120" fill="#FFFFFF" stroke="#E2E8F0" />
+                <!-- simple QR-like pattern -->
+                <rect x="10" y="10" width="30" height="30" fill="#0F172A" />
+                <rect x="14" y="14" width="22" height="22" fill="#FFFFFF" />
+                <rect x="18" y="18" width="14" height="14" fill="#0F172A" />
+                <rect x="80" y="10" width="30" height="30" fill="#0F172A" />
+                <rect x="84" y="14" width="22" height="22" fill="#FFFFFF" />
+                <rect x="88" y="18" width="14" height="14" fill="#0F172A" />
+                <rect x="10" y="80" width="30" height="30" fill="#0F172A" />
+                <rect x="14" y="84" width="22" height="22" fill="#FFFFFF" />
+                <rect x="18" y="88" width="14" height="14" fill="#0F172A" />
+                <rect x="50" y="50" width="8" height="8" fill="#0F172A" />
+                <rect x="62" y="50" width="8" height="8" fill="#0F172A" />
+                <rect x="50" y="62" width="8" height="8" fill="#0F172A" />
+                <rect x="74" y="50" width="8" height="8" fill="#0F172A" />
+                <rect x="50" y="74" width="8" height="8" fill="#0F172A" />
+                <rect x="62" y="74" width="8" height="8" fill="#0F172A" />
+                <rect x="74" y="62" width="8" height="8" fill="#0F172A" />
+                <rect x="86" y="50" width="8" height="8" fill="#0F172A" />
+                <rect x="86" y="62" width="8" height="8" fill="#0F172A" />
+                <rect x="50" y="86" width="8" height="8" fill="#0F172A" />
+                <rect x="62" y="86" width="8" height="8" fill="#0F172A" />
+                <rect x="74" y="86" width="8" height="8" fill="#0F172A" />
+                <rect x="86" y="74" width="8" height="8" fill="#0F172A" />
+                <rect x="98" y="50" width="8" height="8" fill="#0F172A" />
+                <rect x="98" y="74" width="8" height="8" fill="#0F172A" />
+                <rect x="98" y="98" width="8" height="8" fill="#0F172A" />
+              </svg>
+            </div>
+            <p class="esim-note">Scan this QR code in your phone settings to activate your CelcomDigi eSIM (50GB high-speed data).</p>
+            <div class="esim-details">
+              <div class="esim-detail"><span>Provider</span><strong>CelcomDigi</strong></div>
+              <div class="esim-detail"><span>Data</span><strong>50 GB High-Speed</strong></div>
+              <div class="esim-detail"><span>Validity</span><strong>30 days</strong></div>
+              <div class="esim-detail"><span>Status</span><strong style="color:var(--accent)">Active</strong></div>
+            </div>
+            <button class="btn btn-primary btn-block" id="download-esim">Download QR Code</button>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <h3 class="dash-card-title">Arrival Checklist</h3>
+              <span class="dash-badge muted">PDF</span>
+            </div>
+            <p class="checklist-desc">Your step-by-step guide for the first 48 hours in Malaysia.</p>
+            <ul class="checklist">
+              <li><input type="checkbox" id="c1" /><label for="c1">Collect luggage at KLIA baggage claim</label></li>
+              <li><input type="checkbox" id="c2" /><label for="c2">Meet MPV driver at arrival gate</label></li>
+              <li><input type="checkbox" id="c3" /><label for="c3">Activate eSIM on your phone</label></li>
+              <li><input type="checkbox" id="c4" /><label for="c4">Check into accommodation &amp; inspect room</label></li>
+              <li><input type="checkbox" id="c5" /><label for="c5">Unpack survival kit (bedding, toiletries, water)</label></li>
+              <li><input type="checkbox" id="c6" /><label for="c6">Redeem hot meal voucher</label></li>
+              <li><input type="checkbox" id="c7" /><label for="c7">Register at university (UNITAR)</label></li>
+              <li><input type="checkbox" id="c8" /><label for="c8">Set up local bank account (optional)</label></li>
+            </ul>
+            <button class="btn btn-outline btn-block" id="download-checklist">Download Checklist (PDF)</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================== INVOICES ======================== -->
+      <section class="dash-view" id="view-invoices">
+        <div class="dash-header">
+          <h1 class="dash-title">Invoices &amp; Receipts</h1>
+          <p class="dash-subtitle">Download your payment receipts and invoices.</p>
+        </div>
+
+        <div class="dash-card">
+          <div class="table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Invoice #</th>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>Payment Method</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>INV-2026-8842</strong></td>
+                  <td>10 Dec 2026</td>
+                  <td>The Soft Landing Package</td>
+                  <td>RM 320</td>
+                  <td>FPX (Maybank2u)</td>
+                  <td><button class="table-btn" data-invoice="INV-2026-8842">Download</button></td>
+                </tr>
+                <tr>
+                  <td><strong>INV-2026-7710</strong></td>
+                  <td>01 Nov 2026</td>
+                  <td>Essential Transit</td>
+                  <td>RM 180</td>
+                  <td>GrabPay</td>
+                  <td><button class="table-btn" data-invoice="INV-2026-7710">Download</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================== PROFILE ======================== -->
+      <section class="dash-view" id="view-profile">
+        <div class="dash-header">
+          <h1 class="dash-title">Profile &amp; Settings</h1>
+          <p class="dash-subtitle">Manage your account and student details.</p>
+        </div>
+
+        <div class="dash-card">
+          <form class="profile-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" value="Aisyah Rahman" />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" value="aisyah@example.com" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>University Name</label>
+                <input type="text" value="UNITAR International University" />
+              </div>
+              <div class="form-group">
+                <label>Flight Arrival Date &amp; Number</label>
+                <input type="text" value="MH0123 · 15 Dec 2026" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Passport / Student ID</label>
+              <div class="file-display">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <span id="file-name">passport_aisyah.pdf</span>
+                <button type="button" class="file-change" id="file-change-btn">Change</button>
+              </div>
+              <input type="file" id="passport-upload" accept="image/jpeg,image/png,application/pdf" style="display:none" />
+            </div>
+            <div class="form-group">
+              <label>Account Security</label>
+              <div class="security-row">
+                <span>Password</span>
+                <button type="button" class="btn btn-outline" style="padding:8px 16px;font-size:0.875rem">Change Password</button>
+              </div>
+              <div class="security-row">
+                <span>Google SSO</span>
+                <span class="dash-badge success">Connected</span>
+              </div>
+            </div>
+            <div class="profile-actions">
+              <button type="button" class="btn btn-primary">Save Changes</button>
+              <button type="button" class="btn btn-outline">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <script src="js/dashboard.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>
