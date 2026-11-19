@@ -824,6 +824,7 @@ body.dashboard-body {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 4px;
+    scrollbar-width: thin;
   }
 
   .dash-nav::-webkit-scrollbar {

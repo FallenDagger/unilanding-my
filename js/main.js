@@ -43,6 +43,15 @@
     });
   });
 
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (navLinks.classList.contains("open") && !navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+      navLinks.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+  });
+
   // ---------- Reveal-on-scroll ----------
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

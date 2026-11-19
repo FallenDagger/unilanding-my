@@ -90,7 +90,7 @@
 ### Connect Custom Domain to Hosting
 After deploying to Cloudflare Pages/Vercel/Netlify:
 1. Go to your hosting dashboard → Custom Domains
-2. Add your domain (e.g., `unilanding.my`)
+2. Add your domain (e.g., `unilandingmy.com`)
 3. Update DNS records at your registrar:
    - **Cloudflare Pages**: CNAME → `unilanding-my.pages.dev`
    - **Vercel**: CNAME → `cname.vercel-dns.com`
