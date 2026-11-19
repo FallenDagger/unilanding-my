@@ -818,9 +818,21 @@ body.dashboard-body {
 
   .dash-nav {
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 6px;
     flex: none;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+
+  .dash-nav::-webkit-scrollbar {
+    height: 3px;
+  }
+
+  .dash-nav::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 2px;
   }
 
   .dash-nav-item {

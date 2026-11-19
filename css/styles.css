@@ -1542,7 +1542,11 @@ button {
 
   .hero-visual {
     order: -1;
-    height: 360px;
+    height: 300px;
+  }
+
+  .hero-illustration {
+    max-width: 100%;
   }
 
   .hero-title {
@@ -1631,7 +1635,31 @@ button {
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 2.1rem;
+    font-size: 1.8rem;
+  }
+  .modal {
+    padding: 8px;
+  }
+  .modal-content {
+    border-radius: 12px;
+  }
+  .modal-header {
+    padding: 20px 16px 12px;
+  }
+  .wizard-body {
+    padding: 0 16px 16px;
+  }
+  .wizard-steps {
+    padding: 0 16px 16px;
+  }
+  .stepper {
+    gap: 8px;
+  }
+  .step-step {
+    min-width: 80px;
+  }
+  .step-label {
+    font-size: 0.7rem;
   }
 
   .section-title {
