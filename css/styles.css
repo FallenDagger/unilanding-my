@@ -246,6 +246,13 @@ button {
   position: relative;
 }
 
+/* Desktop: hamburger hidden, logo left, links right */
+@media (min-width: 901px) {
+  .nav-toggle {
+    display: none;
+  }
+}
+
 .nav-logo {
   display: inline-flex;
   align-items: center;
@@ -1555,20 +1562,23 @@ button {
     font-size: 2.6rem;
   }
 
+  .nav-toggle {
+    display: flex;
+  }
+
   .nav-links {
     position: absolute;
     top: 72px;
-    left: 0;
-    right: 0;
+    left: 16px;
+    width: min(92vw, 300px);
     background: var(--white);
     flex-direction: column;
     align-items: stretch;
     padding: 12px 16px;
     gap: 0;
     box-shadow: var(--shadow-lg);
-    border-radius: 0 0 16px 16px;
+    border-radius: 12px;
     border: 1px solid var(--border);
-    border-top: none;
     transform: translateY(-20px);
     opacity: 0;
     visibility: hidden;
