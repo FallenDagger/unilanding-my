@@ -567,14 +567,14 @@
           <span class="track-status" style="color:var(--accent)">&#9679; Driver Assigned</span>
           <span class="track-time">Arriving in 12 min &bull; KLIA Gate A</span>
         </div>
-        <div class="track-map" aria-hidden="true">
-          <svg viewBox="0 0 300 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="300" height="140" rx="12" fill="#F8FAFC" stroke="#E2E8F0" />
-            <path d="M30 70 Q150 20 270 70" stroke="#CBD5E1" stroke-width="3" fill="none" stroke-linecap="round" />
-            <circle cx="270" cy="70" r="6" fill="#F2A900" />
-            <path d="M250 62 L270 70 L250 78" fill="#F2A900" />
-            <circle cx="60" cy="70" r="5" fill="#1B365D" />
-          </svg>
+        <div class="track-map" id="track-map">
+          <iframe
+            id="track-map-frame"
+            title="Live UniLanding MY MPV location map"
+            src="https://maps.google.com/maps?q=Menara+Universiti+Malaya&z=13&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
         <div class="track-actions">
           <a href="https://wa.me" class="btn btn-outline btn-block" target="_blank" rel="noopener noreferrer">Message Driver on WhatsApp</a>

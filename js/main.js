@@ -496,13 +496,88 @@
     });
   });
 
-  // ---------- Track section interactions ----------
+  // ---------- Track My Ride: Google Maps live tracking ----------
+  const trackMapFrame = document.getElementById("track-map-frame");
+  const trackStatusEl = document.querySelector("#track .track-status");
+  const trackTimeEl = document.querySelector("#track .track-time");
   const shareEtaBtn = document.querySelector("#track button");
   if (shareEtaBtn) {
     shareEtaBtn.addEventListener("click", () => {
       alert("ETA shared with your host via WhatsApp.");
     });
   }
+
+  const TRACK_ORIGIN = { lat: 40.3095, lng: 101.7107 }; // KLIA
+  const DEFAULT_DEST = "Menara Universiti Kuala Lumpur";
+  const TRIP_MINUTES = 35; // simulated trip duration for ETA
+  let rideProgress = 0; // 0 = driver at KLIA, 1 = arrived
+  let liveTimer = null;
+  let lastMapSrc = null;
+
+  function getRideDestination() {
+    const b = safeJsonParse(localStorage.getItem("unilanding_booking"), null);
+    return (b && b.destination) || DEFAULT_DEST;
+  }
+
+  function getRideDestinationCoords() {
+    const dest = (getRideDestination() || "").toLowerCase();
+    const coords = { lat: 3.0085, lng: 101.5235 }; // UNITAR, Cheras fallback
+    if (dest.indexOf("unitar") > -1) { coords.lat = 3.0085; coords.lng = 101.5235; }
+    else if (dest.indexOf("malaya") > -1) { coords.lat = 2.9349; coords.lng = 101.6937; }
+    else if (dest.indexOf("taylor") > -1) { coords.lat = 3.0035; coords.lng = 101.5272; }
+    else if (dest.indexOf("sunway") > -1) { coords.lat = 3.0065; coords.lng = 101.5321; }
+    else if (dest.indexOf("ucsi") > -1) { coords.lat = 3.1370, coords.lng = 101.5158; }
+    return coords;
+  }
+
+  function trackMapSrc() {
+    if (rideProgress <= 0.005) {
+      // Driver is still at KLIA
+      return "https://maps.google.com/maps?q=" + TRACK_ORIGIN.lat + "," + TRACK_ORIGIN.lng + "&z=12&output=embed";
+    }
+    const d = getRideDestinationCoords();
+    const lat = TRACK_ORIGIN.lat + (d.lat - TRACK_ORIGIN.lat) * rideProgress;
+    const lng = TRACK_ORIGIN.lng + (d.lng - TRACK_ORIGIN.lng) * rideProgress;
+    const z = rideProgress > 0.6 ? 14 : 13;
+    return "https://maps.google.com/maps?q=" + lat.toFixed(4) + "," + lng.toFixed(4) + "&z=" + z + "&output=embed";
+  }
+
+  function updateTrackRide() {
+    const status = rideProgress <= 0 ? "Driver Assigned" : rideProgress < 0.55 ? "En Route" : "Arriving";
+    const etaMin = Math.max(0, Math.round((1 - rideProgress) * TRIP_MINUTES));
+    if (trackStatusEl) {
+      trackStatusEl.innerHTML = "&#9679; " + status;
+      trackStatusEl.style.color = status === "Driver Assigned" ? "var(--accent)" : status === "En Route" ? "var(--primary)" : "var(--secondary)";
+    }
+    if (trackTimeEl) trackTimeEl.innerHTML = "Arriving in " + etaMin + " min &bull; KLIA Gate A";
+    if (trackMapFrame) {
+      const src = trackMapSrc();
+      if (src !== lastMapSrc) {
+        lastMapSrc = src;
+        trackMapFrame.src = src;
+      }
+    }
+  }
+
+  function startLiveTracking() {
+    if (liveTimer) return;
+    updateTrackRide();
+    liveTimer = setInterval(() => {
+      rideProgress = Math.min(0.97, rideProgress + 0.008);
+      updateTrackRide();
+    }, 3000);
+  }
+
+  function stopLiveTracking() {
+    if (liveTimer) { clearInterval(liveTimer); liveTimer = null; }
+  }
+
+  if (trackMapFrame) {
+    startLiveTracking();
+  }
+
+  // Stop live tracking when leaving the page
+  window.addEventListener("beforeunload", stopLiveTracking);
 
   // ---------- Stat counter animation (polish) ----------
   function isInViewport(el) {
